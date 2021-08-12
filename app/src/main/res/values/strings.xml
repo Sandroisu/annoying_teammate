@@ -3,5 +3,6 @@
     <string name="settings">Настройки</string>
     <string name="failure">Ошибка!</string>
     <string name="location_permission">Для корректной работы приложению необходимо разрешение на использование местополжения</string>
-    <string name="scan_for_devices">Сканировать устройства</string>
+    <string name="scan_for_devices">Сканировать</string>
+    <string name="stop_scan_for_devices">Остановить</string>
 </resources>

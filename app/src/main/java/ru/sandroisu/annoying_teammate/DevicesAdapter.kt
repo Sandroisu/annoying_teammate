@@ -1,16 +1,20 @@
-package ru.sandroisu.annoying_teammate
+import ru.sandroisu.annoying_teammate.BLTDevice
+import ru.sandroisu.annoying_teammate.DevicesHolder
+import ru.sandroisu.annoying_teammate.OnStarSelectedListener
+import ru.sandroisu.annoying_teammate.R
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import java.util.ArrayList
 
-class DevicesAdapter(private val devices: ArrayList<BLTDevice>) : RecyclerView.Adapter<DevicesHolder>() {
+class DevicesAdapter(private val devices: List<BLTDevice>, private val listener : OnStarSelectedListener) :
+    RecyclerView.Adapter<DevicesHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DevicesHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.device_holder, parent, false)
-        return DevicesHolder(view)
+        return DevicesHolder(view, listener)
     }
 
     override fun onBindViewHolder(holder: DevicesHolder, position: Int) {
@@ -18,6 +22,10 @@ class DevicesAdapter(private val devices: ArrayList<BLTDevice>) : RecyclerView.A
     }
 
     override fun getItemCount(): Int {
-        return devices.count()
+        return devices.size
     }
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
 }
